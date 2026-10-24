@@ -1,0 +1,7 @@
+# command-guard 哨兵目录（本机防护用，不随插件发布）
+!000-guard/
+
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

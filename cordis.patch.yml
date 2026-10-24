@@ -1,0 +1,21 @@
+# dsh-creativity-nudge — profile patch layer.
+#
+# 一行 loader entry。默认 enabled: false：装上之后什么都不做，
+# 把 enabled 改成 true（或起一份 --dry-run）才会注册 tools/post-execute。
+- insert:
+    - id: creativity-nudge
+      name: 'dsh-creativity-nudge'
+      config:
+        enabled: false
+        # 每会话最多注入几次（硬预算；2 次 = T1 一次 + T2 一次）
+        maxPerSession: 2
+        # 两次提醒之间至少隔多少次工具调用
+        cooldownCalls: 8
+        # 同一个文件被改到第几次算"打转"
+        stuckEdits: 5
+        # 连续失败阈值：0 = 关闭（误报率高，默认不开）
+        stuckFailures: 0
+        # 可选：把触发记录写成 jsonl（排查"到底有没有生效"）
+        # auditFile: '%USERPROFILE%/.dsh/logs/creativity-nudge.jsonl'
+        # 只记日志不注入，用来观察一段时间再决定开不开
+        dryRun: false

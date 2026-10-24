@@ -1,0 +1,35 @@
+{
+  "name": "dsh-creativity-nudge",
+  "version": "0.1.0",
+  "description": "建议型创造力触发器：在模型锁定路线的那一刻注入一次发散提醒。Advisory creativity nudge for DSH (off by default).",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "scripts",
+    "tests",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test --test-force-exit \"tests/*.test.mjs\"",
+    "check": "node --check lib/index.js",
+    "install-plugin": "node scripts/install.mjs",
+    "uninstall-plugin": "node scripts/uninstall.mjs"
+  }
+}
